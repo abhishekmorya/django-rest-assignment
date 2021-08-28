@@ -39,10 +39,11 @@ product: To add new product for existing category and sub category.
    pip install -r requirements.txt
    # Now environment is ready
    ```
-3. Run the development server
+3. Clone the repo, move to `django-rest-assignment\myproject` and start development server.
    ```
+   cd django-rest-assignment\myproject
    python manage.py runserver
    ```
-4. Now all ready to use above mentioned endpoints. Clone the repo and start using in created environment.
+4. Now all ready to use the rest API.
 
 THANKS...

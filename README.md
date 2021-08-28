@@ -16,6 +16,7 @@ Django Rest Framework Assignment
 5. product/sub-category: To retrieve all products for a sub category
 
 ***Details for endpoints for `POST` request:***
+
 product: To add new product for existing category and sub category.
 
 Request Body:

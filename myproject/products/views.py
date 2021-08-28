@@ -29,7 +29,7 @@ class SubCategoryApiView(viewsets.ReadOnlyModelViewSet):
         return Response(values)
 
 
-class ProductApiView(mixins.RetrieveModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
+class ProductApiView(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet):
     """API View for Product"""
 
     serializer_class = serializers.ProductSerializer

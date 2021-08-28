@@ -11,7 +11,11 @@ class Category(models.Model):
         ordering = ['created_on']
 
     def to_dict(self):
-        return {'id': self.id, 'name': self.name, 'created_on': self.created_on}
+        return {
+            'id': self.id, 
+            'name': self.name, 
+            'created_on': self.created_on,
+        }
 
     def __str__(self):
         """Return model as a string"""
@@ -26,7 +30,12 @@ class SubCategory(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def to_dict(self):
-        return {'id': self.id, 'name': self.name, 'created_on': self.created_on}
+        return {
+            'id': self.id, 
+            'name': self.name, 
+            'category': self.category.name, 
+            'created_on': self.created_on,
+        }
 
     def __str__(self):
         """Return the model as a string"""
@@ -42,6 +51,15 @@ class Product(models.Model):
         SubCategory, on_delete=models.CASCADE, null=False, blank=False)
     name = models.CharField(max_length=255, unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'category': self.category.name,
+            'sub-category': self.sub_category.name,
+            'created_on': self.created_on,
+        }
 
     def __str__(self):
         """Return model as string"""

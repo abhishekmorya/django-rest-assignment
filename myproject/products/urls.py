@@ -7,7 +7,8 @@ router = DefaultRouter()
 router.register('category', views.CategoryApiView)
 router.register('sub-category', views.SubCategoryApiView)
 router.register('product', views.ProductApiView)
-# router.register
+router.register('product/sub-category', views.ProductSubCategoryView)
+router.register('product/category', views.ProductCategoryView)
 
 
 urlpatterns = [

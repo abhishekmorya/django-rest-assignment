@@ -18,11 +18,31 @@ Django Rest Framework Assignment
 ***Details for endpoints for `POST` request:***
 
 product: To add new product for existing category and sub category.
-
-Request Body:
-
-`{
+***Request Body:***
+```
+{
   'name': 'Product Name',
   'category': 'category id',
   'sub-category': 'sub category id'
-}`
+}
+```
+
+## Usage for windows
+1. Install python3
+2. Create virtual environment `myenv` and make it ready to use
+   ```
+   # Create virtual environment myenv
+   python venv -m myenv
+   # Activate the environment
+   myenv\Scripts\activate.bat
+   # Install required python packages by using requirements.txt
+   pip install -r requirements.txt
+   # Now environment is ready
+   ```
+3. Run the development server
+   ```
+   python manage.py runserver
+   ```
+4. Now all ready to use above mentioned endpoints. Clone the repo and start using in created environment.
+
+THANKS...

@@ -17,7 +17,7 @@ class SubCategoryApiView(viewsets.ReadOnlyModelViewSet):
     """API View for SubCategory"""
 
     serializer_class = serializers.SubCategorySerializer
-    queryset = models.SubCategory.objects.all()
+    queryset = models.SubCategory.objects.all().order_by('-created_on')
 
     def retrieve(self, response, pk):
         category = models.Category.objects.filter(
@@ -33,7 +33,7 @@ class ProductApiView(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Cr
     """API View for Product"""
 
     serializer_class = serializers.ProductSerializer
-    queryset = models.Product.objects.all()
+    queryset = models.Product.objects.all().order_by('-created_on')
 
 
 class ProductSubCategoryView(viewsets.ReadOnlyModelViewSet):

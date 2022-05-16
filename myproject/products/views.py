@@ -4,13 +4,19 @@ from rest_framework.response import Response
 
 from products import models
 from products import serializers
+import logging
 
+logger = logging.getLogger(__name__)
 
 class CategoryApiView(viewsets.ReadOnlyModelViewSet):
     """API View for Category"""
     
     serializer_class = serializers.CategorySerializer
     queryset = models.Category.objects.all()
+
+    def get_queryset(self):
+        logger.info('All Categories retrieved')
+        return self.queryset
 
 
 class SubCategoryApiView(viewsets.ReadOnlyModelViewSet):
@@ -23,6 +29,7 @@ class SubCategoryApiView(viewsets.ReadOnlyModelViewSet):
         category = models.Category.objects.filter(
             name = pk
         ).first()
+        logger.info(f'Retrieving Sub Categoires for category {pk}')
         queryset = models.SubCategory.objects.filter(category = category.id)
         values = [x.to_dict() for x in queryset]
 

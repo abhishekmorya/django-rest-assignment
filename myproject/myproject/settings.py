@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOG_PATH = "C:\\Users\\dell\\Documents\\Django-projects\\logs\\django_rest_assignment\\"
 
 
 # Quick-start development settings - unsuitable for production
@@ -84,6 +85,31 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': f'{LOG_PATH}\\debug.log',
+            'level': 'DEBUG',
+            'formatter': 'simple',
+        }
+    },
+    'loggers': {
+        '': {
+            'handlers': ['file'],
+            'level': 'DEBUG'
+        },
+    },
+    'formatters': {
+        'simple':{
+            'format': '{asctime} {module} {thread:d} {levelname} {message}',
+            'style': '{'
+        }
+    }    
 }
 
 
